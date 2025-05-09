@@ -52,16 +52,22 @@ class MainActivity : ComponentActivity() {
             Column(
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
-                TopBar()
-                Card()
-                Card()
-                Card()
-                BottomBar()
+                MainWindow()
             }
 
         }
     }
 }
+
+@Composable
+public fun MainWindow(){
+    TopBar()
+    Card()
+    Card()
+    BottomBar()
+}
+
+
 
 
 
@@ -70,7 +76,8 @@ class MainActivity : ComponentActivity() {
 private fun TopBar(){
     Row (modifier = Modifier
         .fillMaxWidth()
-        .padding(top = 30.dp)
+        .padding(top = 30.dp),
+        verticalAlignment = Alignment.Top
     ){
         Text(text = "WayKey", modifier = Modifier, fontSize = 50.sp)
         Box(Modifier.fillMaxWidth()){
@@ -100,7 +107,7 @@ private fun CardContainer(){
 @Composable
 private fun BottomBar(){
     Row(modifier = Modifier
-        .fillMaxWidth()
+        .fillMaxSize()
         .height(100.dp)
         .clip(ArcShape())
         .background(Color(0xFF628A9F))
